@@ -120,5 +120,4 @@ module.exports = {
     Login,
     editUser,
     deleteUser,
-    createEmployee
 }
