@@ -4,7 +4,6 @@
 const Employee = require('../models/employees.model');
 const bcrypt = require ('bcrypt-nodejs');
 const jwt = require ('../services/jwt');
-const { deleteMany } = require('../models/employees.model');
 
 //Crear empleados
 function createEmployee(req,res){
@@ -34,7 +33,7 @@ function createEmployee(req,res){
                     if(!newEmployee){
                         return res.status(404).send({ mensaje: 'Algo ocurrió mal' });
                     }else{
-                        return res.status(200).send({ newEmployee });
+                        return res.status(200).send({ 'Datos Empleado': newEmployee });
                     }
                 })
             }
@@ -49,17 +48,35 @@ function editEmployee(req, res){
     var idEmployee = req.params.idEmployee;
     var params = req.body;
 
+    //evitar que se pueda editar el campo usuario
+    delete params.user;
+
     if(req.user.rol === 'ROL_ADMIN') return res.status(500).send({ mensaje: 'Solo las empresas pueden editar los empleados'});
 
     Employee.findByIdAndUpdate(idEmployee, params, { new: true, useFindAndModify:false }, (er, userUpdated)=>{
         if(er) return res.status(500).send({ mensaje: 'Ha ocurrido un error en el proceso'});
         if(!userUpdated) return res.status(500).send({ mensaje: 'No se ha encontrado ningún empleado con ese id' });
-        return res.status(200).send ({ 'Usuario Actualizado': userUpdated });
+        return res.status(200).send ({ 'Usuario actualizado': userUpdated });
+    })
+
+}
+
+//Eliminar Empleados
+function deleteEmployee(req, res){
+    var idEmployee = req.params.idEmployee;
+    
+    if(req.user.rol === 'ROL_ADMIN') return res.status(500).send({ mensaje: 'Solo las empresas tienen permiso para eliminar empleados'})
+
+    Employee.findByIdAndDelete(idEmployee, (er, userDeleted)=>{
+        if(er) return res.status(500).send({ mensaje: 'Ha surgido un error'})
+        if(!userDeleted) return res.status(500).send({ mensaje: 'No se ha encontrado ningún empleado con ese Id' });
+        return res.status(200).send({ 'Empleado eliminado': userDeleted });
     })
 
 }
 
 module.exports ={ 
     createEmployee,
-    editEmployee
+    editEmployee,
+    deleteEmployee
 }
