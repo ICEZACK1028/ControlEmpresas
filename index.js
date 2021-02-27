@@ -7,16 +7,14 @@ const User = require("./src/models/users.model");
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/EmpresasDB', { useNewUrlParser: true, useUnifiedTopology: true }).then(()=>{
-    console.log('Conexion establecida');
+    console.log('Conexión establecida');
 
     var userConst = new User();
     var userName = 'Admin';
     var password = '123456';
-    var rol = 'ROL_ADMIN'; 
 
     userConst.user = userName;
     userConst.password = password;
-    userConst.rol = rol;
 
     User.find({ user: userConst.user }).exec((er, userFound)=>{
         if(userFound && userFound.length >= 1 ){
@@ -38,7 +36,7 @@ mongoose.connect('mongodb://localhost:27017/EmpresasDB', { useNewUrlParser: true
     })
 
     app.listen(3000, function(){
-        console.log('Todo funcionando al 100% ¡Crack!');
+        console.log('Todo anda bien acá en la zona 3000');
     })
 
 }).catch(er => console.log(er));
