@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "b881646b-e423-41c2-afc8-dcf5b17084bf",
+		"name": "Control Empresas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "Admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "getToken",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login empresa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "LaTorre",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "getToken",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario (Empresa)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYmVlNGQyNjMzZTRjOTg2MDdhMGUiLCJ1c2VyIjoiQWRtaW4iLCJpYXQiOjE2MTQ0NjMwODcsImV4cCI6MTYxNTY3MjY4N30.xZeF1EnhosY76KUbCX9yfAoi9OVDtWnqRJ5PnXc2xZE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "LaTorre",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/createCompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"createCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar usuario (Empresa)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYmVlNGQyNjMzZTRjOTg2MDdhMGUiLCJ1c2VyIjoiQWRtaW4iLCJpYXQiOjE2MTQ0NjMxOTQsImV4cCI6MTYxNTY3Mjc5NH0.Mlz0dTTAIZ4nMiYrzC7Y70a0CunwbQ6flE3_vD21Gz4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "PolloCampero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/userUpdate/603ac091c71df92d18708128",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userUpdate",
+						"603ac091c71df92d18708128"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar usuario (Empresa)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYmVlNGQyNjMzZTRjOTg2MDdhMGUiLCJ1c2VyIjoiQWRtaW4iLCJpYXQiOjE2MTQ0NjMxOTQsImV4cCI6MTYxNTY3Mjc5NH0.Mlz0dTTAIZ4nMiYrzC7Y70a0CunwbQ6flE3_vD21Gz4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/userDelete/603ac091c71df92d18708128",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"userDelete",
+						"603ac091c71df92d18708128"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Empleados",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYzMxNjIxMDcwNDU5MThkNmU3ZGYiLCJ1c2VyIjoiTGFUb3JyZSIsImlhdCI6MTYxNDQ2NjE0NywiZXhwIjoxNjE1Njc1NzQ3fQ.UdyPAYoHLzsBav_iMbOMxXgUp7zne_XWQJTw3ktQXLc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "Oscaron@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Torre",
+							"type": "text"
+						},
+						{
+							"key": "place",
+							"value": "programador",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "Informatica",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/createEmployee",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"createEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Empleados",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYzMxNjIxMDcwNDU5MThkNmU3ZGYiLCJ1c2VyIjoiTGFUb3JyZSIsImlhdCI6MTYxNDQ2NjE0NywiZXhwIjoxNjE1Njc1NzQ3fQ.UdyPAYoHLzsBav_iMbOMxXgUp7zne_XWQJTw3ktQXLc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Juan Pablo",
+							"type": "text"
+						},
+						{
+							"key": "place",
+							"value": "Programador",
+							"type": "text"
+						},
+						{
+							"key": "department",
+							"value": "Informatica",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/editEmployee/603acc73a64fd74bb4c0d8f6",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"editEmployee",
+						"603acc73a64fd74bb4c0d8f6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar empleados",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYzMxNjIxMDcwNDU5MThkNmU3ZGYiLCJ1c2VyIjoiTGFUb3JyZSIsImlhdCI6MTYxNDQ2Mzg3OCwiZXhwIjoxNjE1NjczNDc4fQ.trwpE7FinDrhvLnQXl5NVUcKhkYD3mv0NjZfJkSUm0w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/deleteEmployee/603ac3372107045918d6e7e0/603ac3162107045918d6e7df",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"deleteEmployee",
+						"603ac3372107045918d6e7e0",
+						"603ac3162107045918d6e7df"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar empleado por ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYzMxNjIxMDcwNDU5MThkNmU3ZGYiLCJ1c2VyIjoiTGFUb3JyZSIsImlhdCI6MTYxNDQ2NjE0NywiZXhwIjoxNjE1Njc1NzQ3fQ.UdyPAYoHLzsBav_iMbOMxXgUp7zne_XWQJTw3ktQXLc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/getEmployeeID/603acc28a64fd74bb4c0d8f4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getEmployeeID",
+						"603acc28a64fd74bb4c0d8f4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar empleado por Nombre",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYzMxNjIxMDcwNDU5MThkNmU3ZGYiLCJ1c2VyIjoiTGFUb3JyZSIsImlhdCI6MTYxNDQ3MTA2MywiZXhwIjoxNjE1NjgwNjYzfQ.shnYClH90LF56zrBJ2_LReaDNrIjTengxw1xSkDBoPo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/getEmployeeName/Torre",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getEmployeeName",
+						"Torre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar empleado por Departamento",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MDNhYzMxNjIxMDcwNDU5MThkNmU3ZGYiLCJ1c2VyIjoiTGFUb3JyZSIsImlhdCI6MTYxNDQ3MTA2MywiZXhwIjoxNjE1NjgwNjYzfQ.shnYClH90LF56zrBJ2_LReaDNrIjTengxw1xSkDBoPo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/getEmployeeDepartment/Informatica",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getEmployeeDepartment",
+						"Informatica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todos los empleados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/getEmployeeAll",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getEmployeeAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generar pdf de empleados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/createEmployeePDF",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"createEmployeePDF"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
