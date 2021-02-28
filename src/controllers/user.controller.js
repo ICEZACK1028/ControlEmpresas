@@ -39,11 +39,10 @@ function createUser(req, res){
     var userModel = new User();
     var params = req.body;
 
-     if(req.user.rol != 'ROL_ADMIN') return res.status(500).send({ mensaje: 'Solo el admin puede crear empresas' });
+     if(req.user.user != 'Admin') return res.status(500).send({ mensaje: 'Solo el admin puede crear empresas' });
 
         if(params.user && params.password){
             userModel.user = params.user;
-            userModel.rol = 'ROL_EMPRESA';
 
             User.find({ user: userModel.user }).exec((er, userFound)=>{
                 if (er) return res.status(500).send({ mensaje: 'Error al encontrar el usuario' });
@@ -87,7 +86,7 @@ function editUser(req, res){
     delete params.password;
 
     //Evaluar si es el Admin
-    if(req.user.rol != 'ROL_ADMIN') return res.status(500).send({ mensaje: 'Únicamente el Admin puede editar las empresas' });
+    if(req.user.user != 'Admin') return res.status(500).send({ mensaje: 'Únicamente el Admin puede editar las empresas' });
     
     User.findByIdAndUpdate(idUser, params, { new: true, useFindAndModify: false }, (er, userUpdated)=>{
         if(er)  return res.status(500).send({ mensaje: 'Error en la petición' });
@@ -101,12 +100,12 @@ function deleteUser(req,res){
     var idUser = req.params.idUser;
 
     //valicación de admin
-    if(req.user.rol != 'ROL_ADMIN') return res.status(500).send({ mensaje: 'Únicamente el Admin puede eliminar empresas' });
+    if(req.user.user != 'Admin') return res.status(500).send({ mensaje: 'Únicamente el Admin puede eliminar empresas' });
 
     User.findByIdAndDelete(idUser, (er, deleteUser)=>{
         if(er) return res.status(500).send({ mensaje:'Error en el proceso' });
         if(!deleteUser) return res.status(500).send({ mensaje: 'No se ha encontrado la empresa, verifique el Id' })
-        return res.status(200).send({ deleteUser });
+        return res.status(200).send({ 'Empresa eliminada': deleteUser });
     })
 
 }
