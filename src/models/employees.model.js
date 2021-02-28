@@ -8,7 +8,7 @@ var EmployeeSchema = Schema({
     user: String,
     place: String,
     department: String,
-    company: [{ type: Schema.Types.ObjectId, ref: 'users'}]
+    company: { type: Schema.Types.ObjectId, ref: 'users'}
 });
 
 module.exports = mongoose.model('employees', EmployeeSchema);
